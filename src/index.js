@@ -16,6 +16,7 @@ function * rootSaga () {
     yield takeEvery('GET_REFLECTIONS', getReflectionsSaga);
     yield takeEvery('ADD_REFLECTION', addReflectionSaga);
     yield takeEvery('DELETE_REFLECTION', deleteReflectionSaga);
+    yield takeEvery('UPDATE_REFLECTION', updateReflectionSaga);
 }
 
 function * getReflectionsSaga() {
@@ -42,6 +43,16 @@ function * addReflectionSaga(action) {
 function * deleteReflectionSaga(action) {
     try {
         yield call(axios.delete, `/reflection/${action.payload.id}`, action.payload)
+        yield put({
+            type: 'GET_REFLECTIONS'
+        })
+      } catch (error) {
+      }
+};
+
+function * updateReflectionSaga(action) {
+    try {
+        yield call(axios.put, `/reflection/${action.payload.id}`, action.payload)
         yield put({
             type: 'GET_REFLECTIONS'
         })

@@ -15,9 +15,9 @@ class ReflectionListItem extends Component {
     bookmarkReflection = () => {
         let refToBookmark = this.props.reflection;
         refToBookmark.bookmarked = !refToBookmark.bookmarked;
-        axios.put(`/reflection/${refToBookmark.id}`, refToBookmark).then((response) => {
-        }).catch((error) => {
-            console.log('error bookmarking', error);
+        this.props.dispatch({
+            type: 'UPDATE_REFLECTION',
+            payload: refToBookmark
         })
     }
     
