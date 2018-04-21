@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../ReflectionForm/ReflectionForm.css'
 // import axios from 'axios';
 
 class ReflectionForm extends Component {

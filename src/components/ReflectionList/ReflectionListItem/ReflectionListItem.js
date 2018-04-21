@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
-import '../ReflectionList.css'
+import '../ReflectionList.css';
+import Button from 'material-ui/Button';
 
 class ReflectionListItem extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            isBookmarked: false
+        }
+    }
 
     deleteReflection = () => {
         this.props.dispatch({
@@ -19,9 +27,28 @@ class ReflectionListItem extends Component {
             type: 'UPDATE_REFLECTION',
             payload: refToBookmark
         })
+        this.setState({
+            isBookmarked: !this.state.isBookmarked
+        })
     }
     
     render() {
+        if (this.props.reflection.bookmarked === false){
+            return(
+                <li>
+                <div className="reflectionContainer">
+                    <div className="reflectionItem">
+                        <p>{this.props.reflection.topic}</p>
+                        <p>Added on 4/20/2018</p>
+                        <p>{this.props.reflection.description}</p>
+                        <p>{this.state.isBookmarked}</p>
+                        <Button variant="raised" onClick={this.deleteReflection}>Delete</Button>
+                        <Button variant="raised" color="primary" onClick={this.bookmarkReflection}>Bookmark</Button>
+                    </div>
+                </div>
+            </li>
+            )
+        }
         return(
             <li>
                 <div className="reflectionContainer">
@@ -29,9 +56,9 @@ class ReflectionListItem extends Component {
                         <p>{this.props.reflection.topic}</p>
                         <p>Added on 4/20/2018</p>
                         <p>{this.props.reflection.description}</p>
-                        <p>{this.props.reflection.bookmarked}</p>
-                        <button onClick={this.deleteReflection}>Delete</button>
-                        <button onClick={this.bookmarkReflection}>Bookmark</button>
+                        <p>True</p>
+                        <Button variant="raised" onClick={this.deleteReflection}>Delete</Button>
+                        <Button variant="raised" color="primary" onClick={this.bookmarkReflection}>Bookmark</Button>
                     </div>
                 </div>
             </li>
