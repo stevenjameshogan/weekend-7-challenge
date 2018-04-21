@@ -1,6 +1,6 @@
 .reflectionContainer {
     height: 230px;
-    width: 300px; 
+    width: 330px; 
     border: 1px solid black; 
     margin: 20px; 
     float: left; 
@@ -10,6 +10,7 @@
     padding: 5px; 
     text-align: center;
 }
+
 
 .reflectionEdit {
     padding: 20px; 

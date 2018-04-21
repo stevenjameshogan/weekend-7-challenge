@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import { connect } from 'react-redux';
 import '../ReflectionList.css';
 import Button from 'material-ui/Button';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import { Delete, ModeEdit, Save, Bookmark, BookmarkBorder } from 'material-ui-icons';
 
 class ReflectionListItem extends Component {
     constructor(props){
@@ -75,8 +76,8 @@ class ReflectionListItem extends Component {
         if (this.state.isEditing) {
             return(
             <li>
-                <div className="reflectionContainer">
-                    <div className="reflectionEdit">
+                <Card className="reflectionContainer">
+                    <CardContent className="reflectionEdit">
                         <input type="text" value={this.state.reflectionInputs.topic} onChange={this.handleEditInput("topic")}
                             placeholder={this.props.reflection.topic}></input>
                         <br/>
@@ -84,40 +85,40 @@ class ReflectionListItem extends Component {
                             onChange={this.handleEditInput("description")} cols="40" rows="6" 
                             placeholder={this.props.reflection.description}>
                         </textarea>
-                        <Button variant="raised" onClick={this.updateReflection}>Save</Button>
-                        <Button variant="raised" onClick={this.deleteReflection}>Delete</Button>
-                    </div>
-                </div>
+                        <Button variant="raised" onClick={this.updateReflection}><Save/></Button>
+                        <Button variant="raised" onClick={this.deleteReflection}><Delete/></Button>
+                    </CardContent>
+                </Card>
             </li>)
         }
         else if (this.state.isBookmarked){
             return(
                 <li>
-                <div className="reflectionContainer">
-                    <div className="reflectionItem">
-                        <p>{this.props.reflection.topic}</p>
-                        <p>Added on 4/20/2018</p>
-                        <p>{this.props.reflection.description}</p>
-                        <Button variant="raised" onClick={this.handleEditClick}>Edit</Button>
-                        <Button variant="raised" onClick={this.deleteReflection}>Delete</Button>
-                        <Button variant="raised" color="primary" onClick={this.bookmarkReflection}>Unmark</Button>
-                    </div>
-                </div>
-            </li>
+                    <Card className="reflectionContainer">
+                        <CardContent className="reflectionItem">
+                            <p>{this.props.reflection.topic}</p>
+                            <p>Added on 4/20/2018</p>
+                            <p>{this.props.reflection.description}</p>
+                            <Button variant="raised" onClick={this.handleEditClick}><ModeEdit/></Button>
+                            <Button variant="raised" onClick={this.deleteReflection}><Delete/></Button>
+                            <Button variant="raised" color="primary" onClick={this.bookmarkReflection}><Bookmark/></Button>
+                        </CardContent>
+                    </Card>
+                </li>
             )
         }
             return(
                 <li>
-                    <div className="reflectionContainer">
-                        <div className="reflectionItem">
+                    <Card className="reflectionContainer">
+                        <CardContent className="reflectionItem">
                             <p>{this.props.reflection.topic}</p>
                             <p>Added on 4/20/2018</p>
                             <p>{this.props.reflection.description}</p>
-                            <Button variant="raised" onClick={this.handleEditClick}>Edit</Button>
-                            <Button variant="raised" onClick={this.deleteReflection}>Delete</Button>
-                            <Button variant="raised" onClick={this.bookmarkReflection}>Bookmark</Button>
-                        </div>
-                    </div>
+                            <Button variant="raised" onClick={this.handleEditClick}><ModeEdit/></Button>
+                            <Button variant="raised" onClick={this.deleteReflection}><Delete/></Button>
+                            <Button variant="raised" onClick={this.bookmarkReflection}><BookmarkBorder/></Button>
+                        </CardContent>
+                    </Card>
                 </li>
         )
     }
