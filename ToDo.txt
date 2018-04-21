@@ -1,0 +1,18 @@
+<textarea name="paragraph_text" cols="50" rows="10"></textarea>
+
+FRIDAY
+
+[x] - Client side router
+[x] - Create router on Server
+[x] - Create server side GET route
+[x] - Setup Redux/Index.js, create reducer for data
+[] - Create client side GET route, pass data to reducer
+[] - Display reflections as list items on the DOM (via .map function) on component mount
+[] - Create form/wireframe for POST view
+[] - Create client side POST route (hard-code date for now)
+[] - Create server side POST route
+[] - Add Delete, Bookmark buttons to List items
+[] - Create server side DELETE route
+[] - Create client side DELETE route (based on unique id)
+[] - Create server side PUT route (for bookmark only for now)
+[] - Create client side PUT route (for bookmark only for now)
