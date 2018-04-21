@@ -7,7 +7,7 @@ FRIDAY
 [x] - Create server side GET route
 [x] - Setup Redux/Index.js, create reducer for data
 [x] - Create client side GET route, pass data to reducer
-[] - Display reflections as list items on the DOM (via .map function) on component mount
+[x] - Display reflections as list items on the DOM (via .map function) on component mount
 [] - Create form/wireframe for POST view
 [] - Create client side POST route (hard-code date for now)
 [] - Create server side POST route

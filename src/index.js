@@ -12,10 +12,11 @@ import logger from 'redux-logger'
 const reflectionList = (state = [], action) => {
     switch(action.type) {
         case 'GET_REFLECTIONS':
-        console.log('reducer got', action.payload);
-        return action.payload
-    }
-    return state;   
+            console.log('reducer got', action.payload);
+            return action.payload
+        default:
+            return state; 
+    }  
 }
 
 

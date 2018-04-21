@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import ReflectionListItem from '../ReflectionList/ReflectionListItem/ReflectionListItem'
 
 class ReflectionList extends Component {
-    // constructor(props){
-    //     super(props)
-    // }
 
     getReflections = () => {
         axios.get('/reflection').then((response) => {
@@ -24,7 +22,16 @@ class ReflectionList extends Component {
     }
 
     render() {
-        return(<h1>ReflectionList</h1>)
+        let reflectionListItems = this.props.reduxState.reflectionList.map((reflection) => {
+            return(<ReflectionListItem key={reflection.id} reflection={reflection} />)
+        })
+        return(
+            <div>
+                <ul>
+                    {reflectionListItems}
+                </ul>
+            </div>
+            )
     }
 }
 const mapReduxStateToProps = (reduxState) => ({
