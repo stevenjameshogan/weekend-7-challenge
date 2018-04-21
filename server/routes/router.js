@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM reflection`;
+    const queryText = `SELECT * FROM reflection ORDER BY id`;
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -31,7 +31,6 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    console.log(req.body)
     const queryText = `UPDATE reflection SET bookmarked = $1 WHERE id = $2`
     pool.query(queryText, [req.body.bookmarked, req.body.id]).then((result) => {
         res.sendStatus(200);

@@ -15,7 +15,6 @@ class ReflectionListItem extends Component {
 
     bookmarkReflection = () => {
         let refToBookmark = this.props.reflection;
-        console.log('in bookmark ref', refToBookmark);
         refToBookmark.bookmarked = !refToBookmark.bookmarked;
         axios.put(`/reflection/${refToBookmark.id}`, refToBookmark).then((response) => {
         }).catch((error) => {
