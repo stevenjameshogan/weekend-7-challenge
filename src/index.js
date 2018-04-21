@@ -10,7 +10,11 @@ import logger from 'redux-logger'
 
 // reducers
 const reflectionList = (state = [], action) => {
-    console.log('in reflection list');
+    switch(action.type) {
+        case 'GET_REFLECTIONS':
+        console.log('reducer got', action.payload);
+        return action.payload
+    }
     return state;   
 }
 
