@@ -8,8 +8,8 @@ FRIDAY
 [x] - Setup Redux/Index.js, create reducer for data
 [x] - Create client side GET route, pass data to reducer
 [x] - Display reflections as list items on the DOM (via .map function) on component mount
-[] - Create form/wireframe for POST view
-[] - Create client side POST route (hard-code date for now)
+[x] - Create form/wireframe for POST view
+[] - Create client side POST route
 [] - Create server side POST route
 [] - Add Delete, Bookmark buttons to List items
 [] - Create server side DELETE route

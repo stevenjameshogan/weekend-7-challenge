@@ -12,4 +12,13 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const queryText = `INSERT INTO reflection (topic, description) VALUES ($1, $2)`;
+    pool.query(queryText, [req.body.topic, req.body.description]).then((response) => {
+        res.sendStatus(201);
+    }).catch((error) => {
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

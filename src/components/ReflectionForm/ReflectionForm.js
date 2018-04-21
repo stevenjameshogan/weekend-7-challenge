@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 class ReflectionForm extends Component {
     constructor(props){
@@ -16,7 +16,6 @@ class ReflectionForm extends Component {
     handleInput = (propertyName) => {
         return (event) => {
             console.log(event.target.value);
-            
             this.setState({
                 reflectionInputs: {
                     ...this.state.reflectionInputs,
@@ -24,12 +23,20 @@ class ReflectionForm extends Component {
                 }
             })
         }
-        
     }
+
+    addReflection = (event) => {
+        event.preventDefault();
+        axios.post('/reflection', this.state.reflectionInputs).then((response) => {
+        }).catch((error) => {
+            console.log('error postin', error);
+        })
+    }
+
     render() {
         return(
             <div id="formDiv">
-                <form>
+                <form onSubmit={this.addReflection}>
                     <input value={this.state.topic} type="text" placeholder="Topic" onChange={this.handleInput("topic")}></input>
                     <p>Description</p>
                     <textarea value={this.state.description} onChange={this.handleInput("description")} cols="50" rows="10"></textarea>

@@ -5,7 +5,6 @@ import '../ReflectionList.css'
 
 class ReflectionListItem extends Component {
     
-
     render() {
         return(
             <li>
