@@ -18,4 +18,28 @@ FRIDAY
     [x] - Create client side PUT route (for bookmark only for now)
     [x] - Setup sagas
 
+SATURDAY
+
+[x] - Fix show/hide of isBookmarked
+[] - Client side PUT request
+[] - Server side PUT request
+[] - Styling
+    [] - Cards
+    [] - Icons
+    [] - Text fields
+    [] - Tabs/Nav bar
+    [] - Add header component
+[] - Try SQL join 
+[] - Filter by topic with UI material
+
+SUNDAY
+
+[] - Add code comments
+[] - Finish Styling
+[] - Create ReadMe
+[] - Deploy to Heroku
+[] - Modularize Sagas
+
+
+
 
