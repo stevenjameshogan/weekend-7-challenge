@@ -12,8 +12,10 @@ class ReflectionListItem extends Component {
             isBookmarked: false,
             isEditing: false,
             reflectionInputs: {
+                id: this.props.reflection.id,
                 topic: '',
-                description: ''
+                description: '',
+                bookmarked: this.props.reflection.bookmarked
             }
         }
     }
@@ -25,21 +27,23 @@ class ReflectionListItem extends Component {
         });
     }
     bookmarkReflection = () => {
-        let refToBookmark = this.props.reflection;
-        refToBookmark.bookmarked = !refToBookmark.bookmarked;
+        this.props.reflection.bookmarked = !this.props.reflection.bookmarked
         this.props.dispatch({
             type: 'UPDATE_REFLECTION',
-            payload: refToBookmark
+            payload:  this.props.reflection
         });
         this.setState({
             isBookmarked: !this.state.isBookmarked
         });
     }
-    saveReflection = () => {
+    updateReflection = () => {
         this.setState({
-            isEditing: false
-        }) ;
-
+            isEditing: false,
+        });
+        this.props.dispatch({
+            type: 'UPDATE_REFLECTION',
+            payload: this.state.reflectionInputs
+        })
     }
 
     handleEditClick = () => {
@@ -72,7 +76,7 @@ class ReflectionListItem extends Component {
                             onChange={this.handleEditInput("description")} cols="40" rows="6" 
                             placeholder={this.props.reflection.description}>
                         </textarea>
-                        <Button variant="raised" onClick={this.saveReflection}>Save</Button>
+                        <Button variant="raised" onClick={this.updateReflection}>Save</Button>
                         <Button variant="raised" onClick={this.deleteReflection}>Delete</Button>
                     </div>
                 </div>
