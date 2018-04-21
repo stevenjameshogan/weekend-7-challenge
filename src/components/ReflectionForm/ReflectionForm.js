@@ -8,7 +8,6 @@ import Button from 'material-ui/Button';
 class ReflectionForm extends Component {
     constructor(props){
         super(props);
-
         this.state = {
             reflectionInputs: {
             topic: '',
