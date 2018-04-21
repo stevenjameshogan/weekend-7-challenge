@@ -6,20 +6,18 @@ import '../ReflectionList.css'
 class ReflectionListItem extends Component {
 
     deleteReflection = () => {
-        axios.delete(`/reflection/${this.props.reflection.id}`).then((response) => {
-        }).catch((error) => {
-            console.log('error deleting', error);
+        this.props.dispatch({
+            type: 'DELETE_REFLECTION',
+            payload: this.props.reflection
         })
-        
     }
 
     bookmarkReflection = () => {
         let refToBookmark = this.props.reflection;
-        console.log('in bookmark ref', refToBookmark);
         refToBookmark.bookmarked = !refToBookmark.bookmarked;
-        axios.put(`/reflection/${refToBookmark.id}`, refToBookmark).then((response) => {
-        }).catch((error) => {
-            console.log('error bookmarking', error);
+        this.props.dispatch({
+            type: 'UPDATE_REFLECTION',
+            payload: refToBookmark
         })
     }
     

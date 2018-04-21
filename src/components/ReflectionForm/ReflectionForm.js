@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+// import axios from 'axios';
 
 class ReflectionForm extends Component {
     constructor(props){
@@ -26,9 +27,9 @@ class ReflectionForm extends Component {
 
     addReflection = (event) => {
         event.preventDefault();
-        axios.post('/reflection', this.state.reflectionInputs).then((response) => {
-        }).catch((error) => {
-            console.log('error postin', error);
+        this.props.dispatch({
+            type: 'ADD_REFLECTION',
+            payload: this.state.reflectionInputs
         })
     }
 
@@ -48,5 +49,8 @@ class ReflectionForm extends Component {
         
     }
 }
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
+});
 
-export default ReflectionForm;
+export default connect(mapReduxStateToProps) (ReflectionForm);

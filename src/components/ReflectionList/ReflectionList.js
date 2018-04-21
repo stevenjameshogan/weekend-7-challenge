@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
 import ReflectionListItem from '../ReflectionList/ReflectionListItem/ReflectionListItem'
 
+
 class ReflectionList extends Component {
 
-    getReflections = () => {
-        axios.get('/reflection').then((response) => {
-            this.props.dispatch({
-                type: 'GET_REFLECTIONS',
-                payload: response.data
-            })
-        }).catch((error) => {
-            console.log('error getting', error);
-        })
-    };
 
     componentDidMount(){
-        this.getReflections();
+        this.props.dispatch({
+            type: 'GET_REFLECTIONS'
+        })
     }
 
     render() {
@@ -35,6 +28,6 @@ class ReflectionList extends Component {
 }
 const mapReduxStateToProps = (reduxState) => ({
     reduxState
-  });
+});
 
 export default connect(mapReduxStateToProps) (ReflectionList);
