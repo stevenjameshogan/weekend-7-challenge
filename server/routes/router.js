@@ -31,8 +31,9 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    const queryText = `UPDATE reflection SET bookmarked = $1 WHERE id = $2`
-    pool.query(queryText, [req.body.bookmarked, req.body.id]).then((result) => {
+    console.log(req.body);
+    const queryText = `UPDATE reflection SET topic = $1, description = $2, bookmarked = $3 WHERE id = $4`
+    pool.query(queryText, [req.body.topic, req.body.description, req.body.bookmarked, req.body.id]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         res.sendStatus(500);
