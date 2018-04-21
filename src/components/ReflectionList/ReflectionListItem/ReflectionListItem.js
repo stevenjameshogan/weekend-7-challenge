@@ -6,11 +6,10 @@ import '../ReflectionList.css'
 class ReflectionListItem extends Component {
 
     deleteReflection = () => {
-        axios.delete(`/reflection/${this.props.reflection.id}`).then((response) => {
-        }).catch((error) => {
-            console.log('error deleting', error);
+        this.props.dispatch({
+            type: 'DELETE_REFLECTION',
+            payload: this.props.reflection
         })
-        
     }
 
     bookmarkReflection = () => {

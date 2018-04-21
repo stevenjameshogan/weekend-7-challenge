@@ -15,6 +15,7 @@ const sagaMiddleware = createSagaMiddleware();
 function * rootSaga () {
     yield takeEvery('GET_REFLECTIONS', getReflectionsSaga);
     yield takeEvery('ADD_REFLECTION', addReflectionSaga);
+    yield takeEvery('DELETE_REFLECTION', deleteReflectionSaga);
 }
 
 function * getReflectionsSaga() {
@@ -26,7 +27,7 @@ function * getReflectionsSaga() {
       })
     } catch (error) {
     }
-}
+};
 
 function * addReflectionSaga(action) {
     try {
@@ -36,9 +37,17 @@ function * addReflectionSaga(action) {
         })
       } catch (error) {
       }
-}
+};
 
-  
+function * deleteReflectionSaga(action) {
+    try {
+        yield call(axios.delete, `/reflection/${action.payload.id}`, action.payload)
+        yield put({
+            type: 'GET_REFLECTIONS'
+        })
+      } catch (error) {
+      }
+};
 
 // reducers
 const reflectionList = (state = [], action) => {
