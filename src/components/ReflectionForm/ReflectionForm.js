@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../ReflectionForm/ReflectionForm.css'
-// import axios from 'axios';
+import '../ReflectionForm/ReflectionForm.css';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
+// import { Delete, ModeEdit, Save, Bookmark, BookmarkBorder } from 'material-ui-icons';
 
 class ReflectionForm extends Component {
     constructor(props){
@@ -32,18 +34,27 @@ class ReflectionForm extends Component {
             type: 'ADD_REFLECTION',
             payload: this.state.reflectionInputs
         })
+        this.setState({
+            reflectionInputs: {
+                topic: '',
+                description: ''
+            }
+        })
     }
 
     render() {
         return(
             <div id="formDiv">
                 <form onSubmit={this.addReflection}>
-                    <textarea value={this.state.topic} type="text" placeholder="Topic" 
-                        onChange={this.handleInput("topic")} cols="100" rows="2"></textarea>
-                    <p>Description</p>
-                    <textarea value={this.state.description} onChange={this.handleInput("description")} cols="100" rows="10"></textarea>
-                    <br/>
-                    <input type="submit"/>
+                    <h3>Topic</h3>
+                    <TextField value={this.state.reflectionInputs.topic} type="text"
+                        onChange={this.handleInput("topic")} multiline fullWidth ></TextField>
+                    <br/><br/><br/>
+                    <h3>Description</h3>
+                    <TextField className="input" value={this.state.reflectionInputs.description} onChange={this.handleInput("description")} 
+                        multiline rows="7" fullWidth></TextField>
+                    <br/><br/><br/><br/>
+                    <Button variant="raised" color="primary" type="submit">Submit</Button>
                 </form>
             </div>
         )

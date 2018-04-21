@@ -1,4 +1,10 @@
 #formDiv {
-    margin: 30px;
-    padding: 10px;
+    margin: 50px;
+    padding: 20px;
+    width: 70%;
+    border: .25px solid black;
+}
+
+.input {
+    margin: 50px
 }
