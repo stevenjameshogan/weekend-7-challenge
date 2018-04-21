@@ -7,7 +7,6 @@ class ReflectionListItem extends Component {
 
     deleteReflection = () => {
         axios.delete(`/reflection/${this.props.reflection.id}`).then((response) => {
-            console.log('delete successfull');
         }).catch((error) => {
             console.log('error deleting', error);
         })
@@ -15,8 +14,13 @@ class ReflectionListItem extends Component {
     }
 
     bookmarkReflection = () => {
-        console.log('in bookmark ref', this.props.reflection);
-        
+        let refToBookmark = this.props.reflection;
+        console.log('in bookmark ref', refToBookmark);
+        refToBookmark.bookmarked = !refToBookmark.bookmarked;
+        axios.put(`/reflection/${refToBookmark.id}`, refToBookmark).then((response) => {
+        }).catch((error) => {
+            console.log('error bookmarking', error);
+        })
     }
     
     render() {
@@ -27,6 +31,7 @@ class ReflectionListItem extends Component {
                         <p>{this.props.reflection.topic}</p>
                         <p>Added on 4/20/2018</p>
                         <p>{this.props.reflection.description}</p>
+                        <p>{this.props.reflection.bookmarked}</p>
                         <button onClick={this.deleteReflection}>Delete</button>
                         <button onClick={this.bookmarkReflection}>Bookmark</button>
                     </div>

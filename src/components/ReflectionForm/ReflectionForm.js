@@ -36,9 +36,10 @@ class ReflectionForm extends Component {
         return(
             <div id="formDiv">
                 <form onSubmit={this.addReflection}>
-                    <input value={this.state.topic} type="text" placeholder="Topic" onChange={this.handleInput("topic")}></input>
+                    <textarea value={this.state.topic} type="text" placeholder="Topic" 
+                        onChange={this.handleInput("topic")} cols="100" rows="2"></textarea>
                     <p>Description</p>
-                    <textarea value={this.state.description} onChange={this.handleInput("description")} cols="50" rows="10"></textarea>
+                    <textarea value={this.state.description} onChange={this.handleInput("description")} cols="100" rows="10"></textarea>
                     <br/>
                     <input type="submit"/>
                 </form>

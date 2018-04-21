@@ -30,4 +30,14 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    console.log(req.body)
+    const queryText = `UPDATE reflection SET bookmarked = $1 WHERE id = $2`
+    pool.query(queryText, [req.body.bookmarked, req.body.id]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
