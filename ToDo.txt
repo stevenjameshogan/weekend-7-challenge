@@ -21,14 +21,15 @@ FRIDAY
 SATURDAY
 
 [x] - Fix show/hide of isBookmarked
-[] - Client side PUT request
-[] - Server side PUT request
+[x] - Client side PUT request
+[x] - Server side PUT request
 [] - Styling
     [] - Cards
     [] - Icons
     [] - Text fields
     [] - Tabs/Nav bar
     [] - Add header component
+[] - Fix bookmark bug
 [] - Try SQL join 
 [] - Filter by topic with UI material
 

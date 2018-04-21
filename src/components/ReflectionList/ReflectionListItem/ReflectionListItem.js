@@ -9,12 +9,12 @@ class ReflectionListItem extends Component {
         super(props);
 
         this.state = {
-            isBookmarked: this.props.reflection.bookmarked,
             isEditing: false,
+            isBookmarked: this.props.reflection.bookmarked,
             reflectionInputs: {
                 id: this.props.reflection.id,
-                topic: '',
-                description: '',
+                topic: this.props.reflection.topic,
+                description: this.props.reflection.description,
                 bookmarked: this.props.reflection.bookmarked
             }
         }
@@ -27,19 +27,27 @@ class ReflectionListItem extends Component {
         });
     }
     bookmarkReflection = () => {
-        this.props.reflection.bookmarked = !this.props.reflection.bookmarked
+        // this.props.reflection.bookmarked = !this.props.reflection.bookmarked
+        console.log(this.props.reflection.bookmarked);
+        
+        this.setState({
+            isBookmarked: !this.state.isBookmarked,
+            reflectionInputs: {
+                bookmarked: !this.state.reflectionInputs.bookmarked
+            }
+        });
+        console.log(this.state.reflectionInputs);
+        
         this.props.dispatch({
             type: 'UPDATE_REFLECTION',
-            payload:  this.props.reflection
-        });
-        this.setState({
-            isBookmarked: !this.state.isBookmarked
+            payload:  this.state.reflectionInputs
         });
     }
     updateReflection = () => {
         this.setState({
             isEditing: false,
         });
+        console.log('updated', this.state.reflectionInputs);
         this.props.dispatch({
             type: 'UPDATE_REFLECTION',
             payload: this.state.reflectionInputs
