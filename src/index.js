@@ -52,6 +52,7 @@ function * deleteReflectionSaga(action) {
 
 
 function * updateReflectionSaga(action) {
+    console.log(action.payload);
     try {
         yield call(axios.put, `/reflection/${action.payload.id}`, action.payload)
         yield put({

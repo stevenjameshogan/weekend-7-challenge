@@ -16,7 +16,6 @@ class ReflectionListItem extends Component {
                 id: this.props.reflection.id,
                 topic: this.props.reflection.topic,
                 description: this.props.reflection.description,
-                bookmarked: this.props.reflection.bookmarked
             }
         }
     }
@@ -28,20 +27,12 @@ class ReflectionListItem extends Component {
         });
     }
     bookmarkReflection = () => {
-        // this.props.reflection.bookmarked = !this.props.reflection.bookmarked
-        console.log(this.props.reflection.bookmarked);
-        
         this.setState({
-            isBookmarked: !this.state.isBookmarked,
-            reflectionInputs: {
-                bookmarked: !this.state.reflectionInputs.bookmarked
-            }
+            isBookmarked: !this.state.isBookmarked
         });
-        console.log(this.state.reflectionInputs);
-        
         this.props.dispatch({
             type: 'UPDATE_REFLECTION',
-            payload:  this.state.reflectionInputs
+            payload:  {...this.state.reflectionInputs, bookmarked: !this.props.reflection.bookmarked}
         });
     }
     updateReflection = () => {
