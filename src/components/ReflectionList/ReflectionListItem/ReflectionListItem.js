@@ -9,7 +9,7 @@ class ReflectionListItem extends Component {
         super(props);
 
         this.state = {
-            isBookmarked: false,
+            isBookmarked: this.props.reflection.bookmarked,
             isEditing: false,
             reflectionInputs: {
                 id: this.props.reflection.id,
@@ -82,7 +82,7 @@ class ReflectionListItem extends Component {
                 </div>
             </li>)
         }
-        else if (this.props.reflection.bookmarked === false){
+        else if (this.state.isBookmarked){
             return(
                 <li>
                 <div className="reflectionContainer">
