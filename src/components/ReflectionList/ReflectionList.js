@@ -7,7 +7,6 @@ class ReflectionList extends Component {
 
     getReflections = () => {
         axios.get('/reflection').then((response) => {
-            console.log('success', response.data);
             this.props.dispatch({
                 type: 'GET_REFLECTIONS',
                 payload: response.data
