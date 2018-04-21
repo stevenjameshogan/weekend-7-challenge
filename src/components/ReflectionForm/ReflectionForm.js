@@ -15,7 +15,6 @@ class ReflectionForm extends Component {
 
     handleInput = (propertyName) => {
         return (event) => {
-            console.log(event.target.value);
             this.setState({
                 reflectionInputs: {
                     ...this.state.reflectionInputs,
@@ -40,6 +39,7 @@ class ReflectionForm extends Component {
                     <input value={this.state.topic} type="text" placeholder="Topic" onChange={this.handleInput("topic")}></input>
                     <p>Description</p>
                     <textarea value={this.state.description} onChange={this.handleInput("description")} cols="50" rows="10"></textarea>
+                    <br/>
                     <input type="submit"/>
                 </form>
             </div>

@@ -6,22 +6,17 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux'; 
 import { Provider } from 'react-redux'; 
 // import axios from 'axios'; 
-import logger from 'redux-logger' 
+import logger from 'redux-logger' ;
 
 // reducers
 const reflectionList = (state = [], action) => {
     switch(action.type) {
         case 'GET_REFLECTIONS':
-            console.log('reducer got', action.payload);
-            return action.payload
+            return action.payload;
         default:
             return state; 
     }  
 }
-
-
-
-
 
 const storeInstance = createStore(
     combineReducers({
@@ -29,7 +24,7 @@ const storeInstance = createStore(
     }),
     //middleware goes here
         applyMiddleware(logger),
-)
+);
 
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
