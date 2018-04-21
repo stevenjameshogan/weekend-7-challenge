@@ -23,13 +23,13 @@ SATURDAY
 [x] - Fix show/hide of isBookmarked
 [x] - Client side PUT request
 [x] - Server side PUT request
-[] - Styling
-    [] - Cards
-    [] - Icons
-    [] - Text fields
+[x] - Styling
+    [x] - Cards
+    [x] - Icons
+    [x] - Text fields
     [] - Tabs/Nav bar
     [] - Add header component
-[] - Fix bookmark bug
+[x] - Fix bookmark bug
 [] - Try SQL join 
 [] - Filter by topic with UI material
 
@@ -40,6 +40,7 @@ SUNDAY
 [] - Create ReadMe
 [] - Deploy to Heroku
 [] - Modularize Sagas
+[] - Add actual reflections, create SQL queries for Chris and Dane
 
 
 

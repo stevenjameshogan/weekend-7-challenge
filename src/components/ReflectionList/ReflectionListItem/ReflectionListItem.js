@@ -16,6 +16,7 @@ class ReflectionListItem extends Component {
                 id: this.props.reflection.id,
                 topic: this.props.reflection.topic,
                 description: this.props.reflection.description,
+                bookmarked: this.props.reflection.bookmarked
             }
         }
     }
