@@ -91,13 +91,13 @@ class ReflectionListItem extends Component {
                 <li>
                     <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <h4>{this.props.reflection.topic}</h4>
-                            <p>Added on 4/20/2018</p>
+                            <h4>{this.props.reflection.topic} -- <span>Added on 4/20/2018</span></h4>
                             <p>{this.props.reflection.description}</p>
                             <div  className="buttonBar">
                                 <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
                                 <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
-                                <IconButton variant="raised" color="primary" onClick={this.bookmarkReflection}><Bookmark/></IconButton>
+                                <IconButton className="bmkBtn" variant="raised" color="primary" onClick={this.bookmarkReflection}>
+                                <Bookmark/></IconButton>
                             </div>
                         </CardContent>
                     </Card>
@@ -108,13 +108,13 @@ class ReflectionListItem extends Component {
                 <li>
                     <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <h4>{this.props.reflection.topic}</h4>
-                            <p>Added on 4/20/2018</p>
+                            <h4>{this.props.reflection.topic} -- <span>Added on 4/20/2018</span></h4>
                             <p>{this.props.reflection.description}</p>
                             <div className="buttonBar">
                                 <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
                                 <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
-                                <IconButton variant="raised" onClick={this.bookmarkReflection}><BookmarkBorder/></IconButton>
+                                <IconButton className="bmkBtn"variant="raised" onClick={this.bookmarkReflection}>
+                                <BookmarkBorder/></IconButton>
                             </div>
                         </CardContent>
                     </Card>

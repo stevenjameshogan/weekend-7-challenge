@@ -33,18 +33,17 @@ SATURDAY
 
 SUNDAY
 
-[] - Separate buttons and text (via new component)
+[x] - Add button bar
 [] - Finish Styling
     [] - Nav bar(UI)
     [] - Fix card size, padding issues
     [] - Add colors/themes
-[] - Add code comments, talk through code aloud
 [] - Add actual reflections, create SQL queries for Chris and Dane
 
 MONDAY AM
 
     [] - Create ReadMe
-    [] - Deploy to Heroku
+    [] - Add code comments, talk through code aloud
 
 
 

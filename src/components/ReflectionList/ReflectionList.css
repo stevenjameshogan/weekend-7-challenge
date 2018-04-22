@@ -1,11 +1,13 @@
 .reflectionCard {
-    position: relative;
-    /* width: 600px;
-    height: 300px; */
+    /* position: relative; */
+    width: 800px;
+    height: 200px;
     border: 1px solid black; 
-    margin: 20px; 
+    margin: 10px; 
     float: left;
 }
+
+
 
 .editBtn {
     float: left;
@@ -19,7 +21,10 @@ ul {
     position: relative;
     background-color: lawngreen;
     /* width: 550px; */
-    text-align: center;
+    text-align: left;
 }
 
+.bmkBtn {
+    float: right
+}
 
