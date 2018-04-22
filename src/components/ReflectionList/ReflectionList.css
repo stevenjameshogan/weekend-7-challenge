@@ -1,19 +1,29 @@
-.reflectionContainer {
-    height: 230px;
-    width: 330px; 
+.reflectionCard {
+    width: 600px;
+    height: 300px;
     border: 1px solid black; 
     margin: 20px; 
-    float: left; 
+    float: left;
 }
+
 
 .reflectionItem {
     padding: 5px; 
-    text-align: center;
+    text-align: left;
+}
+
+.reflectionEdit{
+    padding: 5px; 
+    text-align: left;
 }
 
 
 .reflectionEdit {
     padding: 20px; 
+}
+
+.editBtn {
+    float: left;
 }
 
 ul {

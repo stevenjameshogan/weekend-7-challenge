@@ -27,16 +27,17 @@ SATURDAY
     [x] - Cards
     [x] - Icons
     [x] - Text fields
-    [] - Tabs/Nav bar
-    [] - Add header component
+
 [x] - Fix bookmark bug
-[] - Try SQL join 
-[] - Filter by topic with UI material
 
 SUNDAY
 
-[] - Add code comments
 [] - Finish Styling
+    [] - Nav bar(UI)
+    [] - Fix card size, padding issues
+    [] - Separate buttons and text
+    [] - Add colors/themes
+[] - Add code comments, talk through code aloud
 [] - Create ReadMe
 [] - Deploy to Heroku
 [] - Modularize Sagas

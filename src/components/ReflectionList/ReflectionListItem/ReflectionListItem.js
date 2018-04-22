@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../ReflectionList.css';
-import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
+import TextField from 'material-ui/TextField';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import { Delete, ModeEdit, Save, Bookmark, BookmarkBorder } from 'material-ui-icons';
 
@@ -68,17 +69,17 @@ class ReflectionListItem extends Component {
         if (this.state.isEditing) {
             return(
             <li>
-                <Card className="reflectionContainer">
+                <Card className="reflectionCard">
                     <CardContent className="reflectionEdit">
-                        <input type="text" value={this.state.reflectionInputs.topic} onChange={this.handleEditInput("topic")}
-                            placeholder={this.props.reflection.topic}></input>
+                        <TextField  type="text" value={this.state.reflectionInputs.topic} onChange={this.handleEditInput("topic")}
+                            placeholder={this.props.reflection.topic}></TextField >
                         <br/>
-                        <textarea value={this.state.reflectionInputs.description} type="text"
-                            onChange={this.handleEditInput("description")} cols="40" rows="6" 
+                        <TextField value={this.state.reflectionInputs.description} type="text"
+                            onChange={this.handleEditInput("description")} multiline fullWidth
                             placeholder={this.props.reflection.description}>
-                        </textarea>
-                        <Button variant="raised" onClick={this.updateReflection}><Save/></Button>
-                        <Button variant="raised" onClick={this.deleteReflection}><Delete/></Button>
+                        </TextField >
+                        <IconButton variant="raised" onClick={this.updateReflection}><Save/></IconButton>
+                        <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
                     </CardContent>
                 </Card>
             </li>)
@@ -86,14 +87,14 @@ class ReflectionListItem extends Component {
         else if (this.state.isBookmarked){
             return(
                 <li>
-                    <Card className="reflectionContainer">
+                    <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <p>{this.props.reflection.topic}</p>
+                            <h4>{this.props.reflection.topic}</h4>
                             <p>Added on 4/20/2018</p>
                             <p>{this.props.reflection.description}</p>
-                            <Button variant="raised" onClick={this.handleEditClick}><ModeEdit/></Button>
-                            <Button variant="raised" onClick={this.deleteReflection}><Delete/></Button>
-                            <Button variant="raised" color="primary" onClick={this.bookmarkReflection}><Bookmark/></Button>
+                            <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
+                            <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                            <IconButton variant="raised" color="primary" onClick={this.bookmarkReflection}><Bookmark/></IconButton>
                         </CardContent>
                     </Card>
                 </li>
@@ -101,14 +102,14 @@ class ReflectionListItem extends Component {
         }
             return(
                 <li>
-                    <Card className="reflectionContainer">
+                    <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <p>{this.props.reflection.topic}</p>
+                            <h4>{this.props.reflection.topic}</h4>
                             <p>Added on 4/20/2018</p>
                             <p>{this.props.reflection.description}</p>
-                            <Button variant="raised" onClick={this.handleEditClick}><ModeEdit/></Button>
-                            <Button variant="raised" onClick={this.deleteReflection}><Delete/></Button>
-                            <Button variant="raised" onClick={this.bookmarkReflection}><BookmarkBorder/></Button>
+                            <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
+                            <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                            <IconButton variant="raised" onClick={this.bookmarkReflection}><BookmarkBorder/></IconButton>
                         </CardContent>
                     </Card>
                 </li>

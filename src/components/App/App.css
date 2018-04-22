@@ -17,3 +17,23 @@
   font-size: large;
 }
 
+nav {
+  width: 96%;
+  /* margin: 0 auto 20px auto; */
+  text-align: center;
+  font-size: 25px;
+  background-color: lightblue;
+  color: beige;
+  padding: 5px;
+  margin-bottom: 1px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
