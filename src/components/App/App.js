@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header/>
+          <Header class="App-header"/>
           <nav>
             <ul>
               <li>

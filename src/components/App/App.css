@@ -18,14 +18,14 @@
 }
 
 nav {
-  width: 96%;
+  width: 100%;
   /* margin: 0 auto 20px auto; */
   text-align: center;
-  font-size: 25px;
+  font-size: 17px;
   background-color: lightblue;
   color: beige;
-  padding: 5px;
-  margin-bottom: 1px;
+  /* padding: 5px;
+  margin-bottom: 1px; */
 }
 
 nav ul {

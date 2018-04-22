@@ -1,7 +1,10 @@
 #formDiv {
-    margin: 20px;
-    padding: 20px;
+    margin: 50px;
+    padding: 50px;
+    width: 85%;
+    height: 400px;
     border: .25px solid black;
+    position: relative;
 }
 
 .input {

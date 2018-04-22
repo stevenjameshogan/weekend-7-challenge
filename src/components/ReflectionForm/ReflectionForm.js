@@ -28,6 +28,8 @@ class ReflectionForm extends Component {
     }
 
     addReflection = (event) => {
+        console.log('in add reflection', this.state.reflectionInputs);
+        
         event.preventDefault();
         this.props.dispatch({
             type: 'ADD_REFLECTION',

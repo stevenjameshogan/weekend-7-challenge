@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import TextField from 'material-ui/TextField';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import { Delete, ModeEdit, Save, Bookmark, BookmarkBorder } from 'material-ui-icons';
+import ReflectionButtonBar from './ReflectionButtonBar/ReflectionButtonBar'
 
 class ReflectionListItem extends Component {
     constructor(props){
@@ -78,8 +79,10 @@ class ReflectionListItem extends Component {
                             onChange={this.handleEditInput("description")} multiline fullWidth
                             placeholder={this.props.reflection.description}>
                         </TextField >
-                        <IconButton variant="raised" onClick={this.updateReflection}><Save/></IconButton>
-                        <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                        <div class="buttonBar">
+                            <IconButton variant="raised" onClick={this.updateReflection}><Save/></IconButton>
+                            <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                        </div>
                     </CardContent>
                 </Card>
             </li>)
@@ -92,9 +95,11 @@ class ReflectionListItem extends Component {
                             <h4>{this.props.reflection.topic}</h4>
                             <p>Added on 4/20/2018</p>
                             <p>{this.props.reflection.description}</p>
-                            <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
-                            <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
-                            <IconButton variant="raised" color="primary" onClick={this.bookmarkReflection}><Bookmark/></IconButton>
+                            <div  className="buttonBar">
+                                <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
+                                <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                                <IconButton variant="raised" color="primary" onClick={this.bookmarkReflection}><Bookmark/></IconButton>
+                            </div>
                         </CardContent>
                     </Card>
                 </li>
@@ -107,9 +112,11 @@ class ReflectionListItem extends Component {
                             <h4>{this.props.reflection.topic}</h4>
                             <p>Added on 4/20/2018</p>
                             <p>{this.props.reflection.description}</p>
-                            <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
-                            <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
-                            <IconButton variant="raised" onClick={this.bookmarkReflection}><BookmarkBorder/></IconButton>
+                            <div className="buttonBar">
+                                <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
+                                <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                                <IconButton variant="raised" onClick={this.bookmarkReflection}><BookmarkBorder/></IconButton>
+                            </div>
                         </CardContent>
                     </Card>
                 </li>
