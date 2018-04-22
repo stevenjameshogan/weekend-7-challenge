@@ -5,7 +5,6 @@ import IconButton from 'material-ui/IconButton';
 import TextField from 'material-ui/TextField';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import { Delete, ModeEdit, Save, Bookmark, BookmarkBorder } from 'material-ui-icons';
-import ReflectionButtonBar from './ReflectionButtonBar/ReflectionButtonBar'
 
 class ReflectionListItem extends Component {
     constructor(props){
