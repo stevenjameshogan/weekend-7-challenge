@@ -20,28 +20,31 @@ FRIDAY
 
 SATURDAY
 
-[x] - Fix show/hide of isBookmarked
-[x] - Client side PUT request
-[x] - Server side PUT request
-[x] - Styling
-    [x] - Cards
-    [x] - Icons
-    [x] - Text fields
-
-[x] - Fix bookmark bug
+    [x] - Fix show/hide of isBookmarked
+    [x] - Client side PUT request
+    [x] - Server side PUT request
+    [x] - Styling
+        [x] - Cards
+        [x] - Icons
+        [x] - Text fields
+        [] - Tabs/Nav bar
+        [] - Add header component
+    [x] - Fix bookmark bug
 
 SUNDAY
 
+[] - Separate buttons and text (via new component)
 [] - Finish Styling
     [] - Nav bar(UI)
     [] - Fix card size, padding issues
-    [] - Separate buttons and text
     [] - Add colors/themes
 [] - Add code comments, talk through code aloud
-[] - Create ReadMe
-[] - Deploy to Heroku
-[] - Modularize Sagas
 [] - Add actual reflections, create SQL queries for Chris and Dane
+
+MONDAY AM
+
+    [] - Create ReadMe
+    [] - Deploy to Heroku
 
 
 

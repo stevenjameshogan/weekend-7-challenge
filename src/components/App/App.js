@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css';
 import ReflectionForm from '../ReflectionForm/ReflectionForm';
 import ReflectionList from '../ReflectionList/ReflectionList';
+import Header from '../Header/Header'
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
+          <Header/>
           <nav>
             <ul>
               <li>
