@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import '../ReflectionList.css';
 import IconButton from 'material-ui/IconButton';
 import TextField from 'material-ui/TextField';
-import Card, { CardActions, CardContent } from 'material-ui/Card';
+import Card, { CardContent } from 'material-ui/Card';
 import { Delete, ModeEdit, Save, Bookmark, BookmarkBorder } from 'material-ui-icons';
+import moment from 'moment';
 
 class ReflectionListItem extends Component {
     constructor(props){
@@ -41,19 +42,16 @@ class ReflectionListItem extends Component {
         this.setState({
             isEditing: false,
         });
-        console.log('updated', this.state.reflectionInputs);
         this.props.dispatch({
             type: 'UPDATE_REFLECTION',
             payload: this.state.reflectionInputs
         })
     }
-
     handleEditClick = () => {
         this.setState({
             isEditing: true
         }) 
     }
-
     handleEditInput = (propertyName) => {
         return (event) => {
             this.setState({
@@ -66,6 +64,7 @@ class ReflectionListItem extends Component {
     };
 
     render() {
+        let dateAdded = moment(this.props.reflection.date).format('MMM Do YYYY');
         if (this.state.isEditing) {
             return(
             <li>
@@ -80,7 +79,7 @@ class ReflectionListItem extends Component {
                         </TextField >
                         <div class="buttonBar">
                             <IconButton variant="raised" onClick={this.updateReflection}><Save/></IconButton>
-                            <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                            <IconButton className="deleteBtn"  variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
                         </div>
                     </CardContent>
                 </Card>
@@ -91,12 +90,12 @@ class ReflectionListItem extends Component {
                 <li>
                     <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <h4>{this.props.reflection.topic} -- <span>Added on 4/20/2018</span></h4>
+                            <h4>{this.props.reflection.topic} -- <span>Added {dateAdded}</span></h4>
                             <p>{this.props.reflection.description}</p>
                             <div  className="buttonBar">
                                 <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
-                                <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
-                                <IconButton className="bmkBtn" variant="raised" color="primary" onClick={this.bookmarkReflection}>
+                                <IconButton className="deleteBtn" variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                                <IconButton variant="raised" color="primary" onClick={this.bookmarkReflection}>
                                 <Bookmark/></IconButton>
                             </div>
                         </CardContent>
@@ -108,12 +107,12 @@ class ReflectionListItem extends Component {
                 <li>
                     <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <h4>{this.props.reflection.topic} -- <span>Added on 4/20/2018</span></h4>
+                            <h4>{this.props.reflection.topic} -- <span>Added {dateAdded}</span></h4>
                             <p>{this.props.reflection.description}</p>
                             <div className="buttonBar">
                                 <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
-                                <IconButton variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
-                                <IconButton className="bmkBtn"variant="raised" onClick={this.bookmarkReflection}>
+                                <IconButton className="deleteBtn" variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                                <IconButton variant="raised" onClick={this.bookmarkReflection}>
                                 <BookmarkBorder/></IconButton>
                             </div>
                         </CardContent>

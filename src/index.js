@@ -66,6 +66,8 @@ function * updateReflectionSaga(action) {
 const reflectionList = (state = [], action) => {
     switch(action.type) {
         case 'SET_REFLECTIONS':
+            console.log(action.payload);
+            
             return action.payload;
         default:
             return state; 

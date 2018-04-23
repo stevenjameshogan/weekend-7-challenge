@@ -6,11 +6,11 @@ import ReflectionListItem from '../ReflectionList/ReflectionListItem/ReflectionL
 
 class ReflectionList extends Component {
 
-
     componentDidMount(){
         this.props.dispatch({
             type: 'GET_REFLECTIONS'
-        })
+        });
+        
     }
 
     render() {

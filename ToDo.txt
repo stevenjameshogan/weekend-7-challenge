@@ -31,18 +31,10 @@ SATURDAY
         [] - Add header component
     [x] - Fix bookmark bug
 
-SUNDAY
-
-[x] - Add button bar
-[] - Finish Styling
-    [] - Nav bar(UI)
-    [] - Fix card size, padding issues
-    [] - Add colors/themes
-[] - Add actual reflections, create SQL queries for Chris and Dane
-
 MONDAY AM
 
     [] - Create ReadMe
+    [] - Add actual reflections, create SQL queries for Chris and Dane
     [] - Add code comments, talk through code aloud
 
 
