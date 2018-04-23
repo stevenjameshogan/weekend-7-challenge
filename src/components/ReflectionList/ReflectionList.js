@@ -6,19 +6,20 @@ import ReflectionListItem from '../ReflectionList/ReflectionListItem/ReflectionL
 
 class ReflectionList extends Component {
 
+    // Retrieve reflections by sending a dispatch to sagas 
     componentDidMount(){
         this.props.dispatch({
             type: 'GET_REFLECTIONS'
         });
-        
     }
 
     render() {
+        // map over array of reflections to create a unique element (li) for each
         let reflectionListItems = this.props.reduxState.reflectionList.map((reflection) => {
             return(<ReflectionListItem key={reflection.id} reflection={reflection} />)
         })
         return(
-            <div>
+            <div id="refDiv">
                 <ul>
                     {reflectionListItems}
                 </ul>

@@ -1,12 +1,11 @@
 .reflectionCard {
-    /* position: relative; */
-    width: 800px;
-    height: 200px;
-    border: 1px solid black; 
+    position: relative;
+    background-color: beige;
+    border: .25px solid black; 
     margin: 10px; 
     float: left;
+    font-family: 'Slabo 27px', serif;
 }
-
 
 
 .editBtn {
@@ -17,9 +16,13 @@ ul {
     list-style: none; 
 }
 
+.li {
+    background-color: beige;
+}
+
 .buttonBar {
     position: relative;
-    background-color: lawngreen;
+    background-color: rgb(112, 192, 230);
     /* width: 550px; */
     text-align: left;
 }
@@ -28,3 +31,14 @@ ul {
     float: right
 }
 
+h4 {
+    font-size: 26px;
+}
+
+span {
+    font-size: 12px;
+}
+
+#refDiv {
+    background-color: beige;
+}

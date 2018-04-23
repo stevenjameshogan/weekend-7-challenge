@@ -11,14 +11,14 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header class="App-header"/>
+          <Header/>
           <nav>
             <ul>
               <li>
-                <Link to="/">View Reflections</Link>
+                <Link to="/" class="navLink" >View Reflections</Link>
               </li>
               <li>
-                <Link to="/addNew">Add New Reflection</Link>
+                <Link to="/addNew" class="navLink" >Add New Reflection</Link>
               </li>
             </ul>
           </nav>

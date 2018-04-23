@@ -12,13 +12,15 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 
 const sagaMiddleware = createSagaMiddleware();
 
+// SAGAS //
+// create root saga, takes in dispatches first before reducers
 function * rootSaga () {
     yield takeEvery('GET_REFLECTIONS', getReflectionsSaga);
     yield takeEvery('ADD_REFLECTION', addReflectionSaga);
     yield takeEvery('DELETE_REFLECTION', deleteReflectionSaga);
     yield takeEvery('UPDATE_REFLECTION', updateReflectionSaga);
 }
-
+// GET saga
 function * getReflectionsSaga() {
     try {
       const refResponse = yield call(axios.get, '/reflection')
@@ -29,7 +31,7 @@ function * getReflectionsSaga() {
     } catch (error) {
     }
 };
-
+// POST saga
 function * addReflectionSaga(action) {
     try {
         yield call(axios.post, '/reflection', action.payload)
@@ -39,7 +41,7 @@ function * addReflectionSaga(action) {
       } catch (error) {
       }
 };
-
+// DELETE saga
 function * deleteReflectionSaga(action) {
     try {
         yield call(axios.delete, `/reflection/${action.payload.id}`, action.payload)
@@ -49,10 +51,8 @@ function * deleteReflectionSaga(action) {
       } catch (error) {
       }
 };
-
-
+// PUT Saga
 function * updateReflectionSaga(action) {
-    console.log(action.payload);
     try {
         yield call(axios.put, `/reflection/${action.payload.id}`, action.payload)
         yield put({
@@ -61,13 +61,12 @@ function * updateReflectionSaga(action) {
       } catch (error) {
       }
 };
+// END SAGAS //
 
-// reducers
+// REDUCERS - hold reflectionList as source of data for application
 const reflectionList = (state = [], action) => {
     switch(action.type) {
         case 'SET_REFLECTIONS':
-            console.log(action.payload);
-            
             return action.payload;
         default:
             return state; 

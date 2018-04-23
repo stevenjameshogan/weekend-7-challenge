@@ -4,7 +4,9 @@ import '../Header/Header.css'
 class Header extends Component {
     render() {
         return(
-        <h1>Daily reflections</h1>
+        <div id="headerDiv">
+            <h1>Daily Reflections</h1>
+        </div>
         )
     }
 }

@@ -15,7 +15,7 @@ class ReflectionForm extends Component {
             }
         }
     }
-
+    // save/capture user inputs so if a reflection is added we have the new inputs
     handleInput = (propertyName) => {
         return (event) => {
             this.setState({
@@ -28,13 +28,13 @@ class ReflectionForm extends Component {
     }
 
     addReflection = (event) => {
-        console.log('in add reflection', this.state.reflectionInputs);
-        
         event.preventDefault();
+        // add new reflection by sending a dispatch to sagas with user inputs (held in local state)
         this.props.dispatch({
             type: 'ADD_REFLECTION',
             payload: this.state.reflectionInputs
         })
+        // clear input fields
         this.setState({
             reflectionInputs: {
                 topic: '',
@@ -55,7 +55,7 @@ class ReflectionForm extends Component {
                     <TextField className="input" value={this.state.reflectionInputs.description} onChange={this.handleInput("description")} 
                         multiline rows="7" fullWidth></TextField>
                     <br/><br/><br/><br/>
-                    <Button variant="raised" color="primary" type="submit">Submit</Button>
+                    <Button variant="raised" color="primary" type="submit" className="button" >Submit</Button>
                 </form>
             </div>
         )

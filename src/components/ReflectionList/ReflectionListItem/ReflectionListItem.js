@@ -10,10 +10,11 @@ import moment from 'moment';
 class ReflectionListItem extends Component {
     constructor(props){
         super(props);
-
+        // establish a state to hold user input data and current edit/bookmark statuses
         this.state = {
             isEditing: false,
             isBookmarked: this.props.reflection.bookmarked,
+            // set initial reflection input values as their current values
             reflectionInputs: {
                 id: this.props.reflection.id,
                 topic: this.props.reflection.topic,
@@ -22,14 +23,16 @@ class ReflectionListItem extends Component {
             }
         }
     }
-
+    // delete unique reflection by sending dispatch to sagas
     deleteReflection = () => {
         this.props.dispatch({
             type: 'DELETE_REFLECTION',
             payload: this.props.reflection
         });
     }
+    // bookmark unique reflection by sending dispatch to sagas
     bookmarkReflection = () => {
+        // toggle bookmarked status for rendering
         this.setState({
             isBookmarked: !this.state.isBookmarked
         });
@@ -38,7 +41,9 @@ class ReflectionListItem extends Component {
             payload:  {...this.state.reflectionInputs, bookmarked: !this.props.reflection.bookmarked}
         });
     }
+    // edit/update unique reflection by sending dispatch to sagas
     updateReflection = () => {
+        // set editing variable to false, for component render logic below
         this.setState({
             isEditing: false,
         });
@@ -47,11 +52,13 @@ class ReflectionListItem extends Component {
             payload: this.state.reflectionInputs
         })
     }
+    // toggles edit mode, for component render logic below
     handleEditClick = () => {
         this.setState({
             isEditing: true
         }) 
     }
+    // save/capture user inputs so if a reflection is edited we have the new inputs
     handleEditInput = (propertyName) => {
         return (event) => {
             this.setState({
@@ -64,33 +71,36 @@ class ReflectionListItem extends Component {
     };
 
     render() {
+        // format date
         let dateAdded = moment(this.props.reflection.date).format('MMM Do YYYY');
+        // If in "edit" mode, render the following:
         if (this.state.isEditing) {
             return(
-            <li>
-                <Card className="reflectionCard">
-                    <CardContent className="reflectionEdit">
-                        <TextField  type="text" value={this.state.reflectionInputs.topic} onChange={this.handleEditInput("topic")}
-                            placeholder={this.props.reflection.topic}></TextField >
-                        <br/>
-                        <TextField value={this.state.reflectionInputs.description} type="text"
-                            onChange={this.handleEditInput("description")} multiline fullWidth
-                            placeholder={this.props.reflection.description}>
-                        </TextField >
-                        <div class="buttonBar">
-                            <IconButton variant="raised" onClick={this.updateReflection}><Save/></IconButton>
-                            <IconButton className="deleteBtn"  variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
-                        </div>
-                    </CardContent>
-                </Card>
-            </li>)
+                <li className="li">
+                    <Card className="reflectionCard">
+                        <CardContent className="reflectionEdit">
+                            <TextField  type="text" value={this.state.reflectionInputs.topic} onChange={this.handleEditInput("topic")}
+                                placeholder={this.props.reflection.topic}></TextField >
+                            <br/>
+                            <TextField value={this.state.reflectionInputs.description} type="text"
+                                onChange={this.handleEditInput("description")} multiline fullWidth
+                                placeholder={this.props.reflection.description}>
+                            </TextField >
+                            <div class="buttonBar">
+                                <IconButton variant="raised" onClick={this.updateReflection}><Save/></IconButton>
+                                <IconButton className="deleteBtn"  variant="raised" onClick={this.deleteReflection}><Delete/></IconButton>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </li>)
         }
+        // If not editing but the reflection is bookmarked, render the following
         else if (this.state.isBookmarked){
             return(
-                <li>
+                <li className="li">
                     <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <h4>{this.props.reflection.topic} -- <span>Added {dateAdded}</span></h4>
+                            <h4>{this.props.reflection.topic}<span> - {dateAdded}</span></h4>
                             <p>{this.props.reflection.description}</p>
                             <div  className="buttonBar">
                                 <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>
@@ -102,12 +112,12 @@ class ReflectionListItem extends Component {
                     </Card>
                 </li>
             )
-        }
+        }   // If not editing and the reflection is not bookmarked, render the following
             return(
-                <li>
+                <li className="li">
                     <Card className="reflectionCard">
                         <CardContent className="reflectionItem">
-                            <h4>{this.props.reflection.topic} -- <span>Added {dateAdded}</span></h4>
+                            <h4>{this.props.reflection.topic}<span> - {dateAdded}</span></h4>
                             <p>{this.props.reflection.description}</p>
                             <div className="buttonBar">
                                 <IconButton variant="raised" onClick={this.handleEditClick}><ModeEdit/></IconButton>

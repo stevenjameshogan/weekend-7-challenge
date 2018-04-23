@@ -33,9 +33,8 @@ SATURDAY
 
 MONDAY AM
 
-    [] - Create ReadMe
-    [] - Add actual reflections, create SQL queries for Chris and Dane
-    [] - Add code comments, talk through code aloud
+    [x] - Add actual reflections, create SQL queries for Chris and Dane
+    [x] - Add code comments, talk through code aloud
 
 
 

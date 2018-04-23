@@ -19,13 +19,13 @@
 
 nav {
   width: 100%;
-  /* margin: 0 auto 20px auto; */
-  text-align: center;
+  text-align: left;
   font-size: 17px;
-  background-color: lightblue;
+  background-color: rgb(112, 192, 230);
   color: beige;
-  /* padding: 5px;
-  margin-bottom: 1px; */
+  font-family: 'Slabo 27px', serif;
+  font-size: 20px;
+
 }
 
 nav ul {
@@ -33,7 +33,20 @@ nav ul {
 }
 
 nav li {
+  color: beige;
   display: inline-block;
   text-align: center;
   margin: 10px;
 }
+
+nav li:hover {
+  background-color: lightblue;
+}
+
+.navLink {
+  text-decoration: none;
+}
+/* 
+.header {
+  background-color: rgb(112, 192, 230);
+} */
